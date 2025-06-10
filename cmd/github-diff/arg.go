@@ -18,8 +18,8 @@ func ParseArg() ActionArg {
 		os.Exit(1)
 	}
 
-	loggerLevel := core.GetInputOrDefault("logger_level", "info")
-	fileName := core.GetInputOrDefault("filename", "pr.diff")
+	loggerLevel := core.GetInputOrDefault("logger-level", "info")
+	fileName := core.GetInputOrDefault("file-name", "pr.diff")
 	return ActionArg{
 		LoggerLevel: loggerLevel,
 		Token:       token,
