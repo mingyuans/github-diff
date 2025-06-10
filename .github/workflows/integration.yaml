@@ -1,0 +1,22 @@
+name: Integration Test
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Download PR Diff
+        if: ${{ github.event_name == 'pull_request' }}
+        id: pr_diff_downloader
+        uses: mingyuans/github-diff@dev
+        with:
+          logger-level: debug
+          token: ${{ secrets.GITHUB_TOKEN }}

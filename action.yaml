@@ -1,0 +1,20 @@
+name: "Github Diff Downloader"
+description: "A simple action to download the diff of a GitHub PR."
+author: "Jimmy Yan"
+inputs:
+  logger-level:
+    description: "logger level (debug, info, warn, error)"
+    default: "info"
+  token:
+    description: "GitHub token for API access"
+    default: ${{ github.token }}
+  file-name:
+    description: "name of the file to save the diff"
+    default: "pr.diff"
+
+outputs:
+  file-path:
+    description: "Path to the downloaded diff file"
+runs:
+  using: "docker"
+  image: "Dockerfile"
