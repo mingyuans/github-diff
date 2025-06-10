@@ -12,7 +12,7 @@ type ActionArg struct {
 }
 
 func ParseArg() ActionArg {
-	var token = core.GetInputOrDefault("github_token", "")
+	var token = core.GetInputOrDefault("token", "")
 	if len(token) == 0 {
 		core.SetFailed("GitHub token is required. Please set the 'token' input.")
 		os.Exit(1)
