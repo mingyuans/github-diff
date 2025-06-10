@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/actions-go/toolkit/core"
+	"os"
 )
 
 type ActionArg struct {
@@ -14,6 +15,7 @@ func ParseArg() ActionArg {
 	var token = core.GetInputOrDefault("github_token", "")
 	if len(token) == 0 {
 		core.SetFailed("GitHub token is required. Please set the 'token' input.")
+		os.Exit(1)
 	}
 
 	loggerLevel := core.GetInputOrDefault("logger_level", "info")
